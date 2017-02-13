@@ -1,0 +1,184 @@
+\documentclass[letterpaper]{article}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+% Title -----------------------------------------------------------------------
+
+\title{Reading 04: Diversity At Notre Dame}
+\date{February 12, 2017}
+\author{Christopher Clarizio{\textless}cclarizi@nd.edu{\textgreater}}
+
+\maketitle
+
+% Overview --------------------------------------------------------------------
+
+\section*{Overview}
+
+\paragraph{}
+
+For this reading I created two very similar scripts to extract data 
+about diversity within the classes of 2013 to 2018 within the department 
+of Computer Science at Notre Dame. One script (gender.sh) extracted data 
+from a provided file (demographics.csv)about the number of Men vs. Women 
+studying Computer Science in each class from 2013 to 2018. In to do this
+the script called a function countgender with two arguments, year and 
+gender, and printed out the number of Men in a year and the number of 
+Women in a year. The function returned the number of Men and the Number 
+of Women by using a pipeline that was constructed out of curl (to get 
+the file) cut (to extract the field for the given year), grep (to search 
+for the lines that were either Men or Women) and wc (to determine the 
+number of lines containing either Men or Women). The second script 
+(ethnic.sh) performed largely the same task in almost exactly the same 
+way. The difference is that ethnic.sh searched not by gender but instead 
+by ethnicity. In performing this task I was unfortunately not suprised 
+to learn that overwhelmingly the majority of people studying Comptuer 
+Science at Notre Dame are caucasian and that to a slightly lesser degree 
+male. Furthermore, while the number of men and women studying Computer 
+Science at Notre Dame has grown the proportion of Men to Women has 
+remained largely the same. In a similar vein, while the number of people 
+studying Computer Science at Notre Dame has increased overall, the 
+proportion of caucasian students to minorities has swelled over this 
+time period. The takeaway for me is that while Notre Dame's Computer 
+Science department has grown it has continued to be majority caucasian 
+males.
+
+% Methodology -----------------------------------------------------------------
+
+\section*{Methodology}
+
+\paragraph{}
+
+In order to process the data inside of demographics.csv I wrote two 
+shell scripts that operated in largely the same way. The first script 
+(gender.sh) used a loop to iterate through the years 2013 to 2018. In 
+each iteration it used echo to display the year, and the output of a 
+function countgender called twice with the current year and either M 
+(for male) or W for (female). This resulted in the number of male and 
+female students studying Computer Science to be diplayed. The function 
+countgender operates very simply, it sets a variable column equal to 
+the column containing the gender information for that year 
+((year-2013)+1), as well as the variable gender to either M or F. It 
+then uses curl to get the demogrpahics.csv file pipes its output into 
+cut to get the information from the proper columns, grep to look for 
+lines that match the desired gender (M or F) and finally wc to count the 
+number of lines containing that specific gender resulting in the number 
+of either men or women from that specific year. The second script 
+(ethnic.sh) funcitons almost identically the difference being instead of 
+looking for the number of a specified gender it instead looks for a specified 
+ethnicity.
+
+% Analysis --------------------------------------------------------------------
+
+\section*{Analysis}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c| }
+ \hline
+ Year & Caucasian & Oriental & Hispanic & African & Native & Multiple &  Undeclared \\
+ \hline
+ 2013 & 43 & 7 & 7 & 3 & 1 & 2 & 0 \\
+ \hline
+ 2014 & 43 & 5 & 4 & 2 & 1 & 1 & 0 \\
+ \hline
+ 2015 & 47 & 9 & 10 & 4 & 1 & 1 & 2 \\
+ \hline
+ 2016 & 53 & 9 & 9 & 1 & 7 & 0 & 0 \\
+ \hline
+ 2017 & 60 & 12 & 3 & 5 & 5 & 6 & 0 \\
+ \hline
+ 2018 & 91 & 8 & 12 & 3 & 4 & 8 & 0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+ \hline
+ Year & Women & Men \\
+ \hline
+ 2013 & 14 & 49 \\
+ \hline
+ 2014 & 12 & 44 \\
+ \hline
+ 2015 & 16 & 58 \\
+ \hline
+ 2016 & 19 & 60 \\
+ \hline
+ 2017 & 26 & 65 \\
+ \hline
+ 2018 & 36 & 90 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{}
+
+\begin{enumerate}
+
+\item{}The overall trend in gender balance at Notre Dame within the 
+department of computer science has shifted towards parity. That is the 
+gender balance has shifted from three and a half men per women in the 
+class of 2013 to only two and a half men per women in the class of 2018.
+
+\item{}Over time ethnic diversity in the Computer Science and 
+Engineering program at Notre Dame has gotten worse. That is the 
+number of minority students has remained largely the same while the 
+number of caucasian students in the class of 2018 has more than 
+doubled from the number of caucasian students in the class of 2013.
+
+\end{enumerate}
+
+\paragraph{}
+
+% Discussion ------------------------------------------------------------------
+
+\section*{Discussion}
+
+\paragraph{}
+
+\begin{enumerate}
+
+\item{}In my opinion the department of comptuer science's main goal 
+should be to attract as many of the most talented and qualified students 
+as possible. In pursuit of this goal I believe that the department is 
+most likely missing out on some of the best students if it is limited to 
+mainly caucasian males. In pursuit of this goal I do believe that the 
+department working to increase diversity would be a good thing. However, 
+I believe that the department in seeking to increase diversity should 
+keep in mind the diversity of the University as a whole. That is bear in 
+mind that the problem of diversity is not limited to the department but 
+the university as a whole and this may prevent the department from being 
+able to increase its diversity as the University does not have a hugely 
+diverse pool of students to draw from. In regards to whether the 
+technology industry should work to increase diversity my opinion is 
+almost identical to mine about the department increasing diversity. That 
+is they should in order to attract the most competent people, however, 
+that may be difficult as the pool of qualified individuals may not be 
+diverse thanks to university computer science programs not being 
+diverse.
+
+\item{}I believe that not only the Computer Science and Engineering 
+department but the university as a whole provides a welcoming 
+environment for all students. This however, is a difficult question for 
+me to answer as I am an individual and cannot hope to speak for all 
+students at the university.
+
+\item{}The most significant challenge that I have faced in the Computer 
+Science and Engineering program is a lack of connection to my peers. 
+That is while the first year engineering program was helpful in 
+introducing me to students studying other engineering disciplines it did 
+not introduce me to any other students studying computer science and 
+engineering which I feel is very important as these are the people that 
+I will be studying with mostly for my remaining time at the university.
+I believe that the university could do a better job in this regard by 
+making modifications to the first year engineering class so that I am 
+able to work with my peers earlier or allowing us to take a computer 
+science specific class as a freshman.
+
+\end{enumerate}
+
+\end{document}
